@@ -45,9 +45,13 @@ def get_latest_post():
 @app.get("/posts/{id}")    #to get a specific post by id
 def get_post(id: int,response: Response):  #path parameter is int type
     post = find_post(id)
-    if not post:
-        response.status_code = status.HTTP_404_NOT_FOUND
-        return {"message": "Post not found"}
+    if not post:  #if post is None return 404
+        #this is the better way to handle errors in FastAPI
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f"Post with id: {id} was not found")
+    
+        # response.status_code = status.HTTP_404_NOT_FOUND   #setting status code manually
+        # return {"message": "Post not found"}
     return {"post_detail": post}
 
 #not the best way , but works for now
