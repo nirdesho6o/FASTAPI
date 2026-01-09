@@ -14,9 +14,9 @@ def get_employees():
 #2. Read a specific employee by id
 @app.get("/employees/{employee_id}", response_model=Employee)
 def get_employee(employee_id: int):
-    for emp in employees_db:
+    for index,emp in enumerate(employees_db):
         if emp.id == employee_id:
-            return emp
+            return emp[index]
     raise HTTPException(status_code=404, detail="Employee not found")
 
 # 3. Add a new employee
