@@ -6,6 +6,8 @@ from typing import Optional
 class EmployeeBase(BaseModel):
     name: str
     email: EmailStr
+    age: Optional[int] = None
+    department: Optional[str] = None
     model_config = ConfigDict(from_attributes=True) #this is to enable orm mode in pydantic v2
     
 # defining separate classes for create, update, and output operations gives flexibility
