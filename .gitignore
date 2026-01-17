@@ -14,3 +14,6 @@ Thumbs.db
 # Optional: if you use a specific IDE (e.g., VS Code or PyCharm)
 .idea/
 .vscode/
+
+# Ignore environment variable files
+.env

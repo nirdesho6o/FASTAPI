@@ -2,7 +2,7 @@ from fastapi import FastAPI, Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from auth import create_access_token, verify_token
 from models import UserInDB
-from utils import get_user, verify_password
+from utlis import get_user, verify_password
 
 app = FastAPI()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='token')
